@@ -61,13 +61,7 @@ pipeline {
                 expression { isSASTEnabled }
             }
             steps {
-                echo 'Running SAST using Polaris'
-                synopsysIO(connectors: [
-                    [$class: 'PolarisPipelineConfig',
-                    configName: 'poc-polaris',
-                    projectName: 'sas-poc-dotnet']]) {
-                    sh 'io --stage execution --state io_state.json'
-                }
+                echo 'AST config goes here'
             }
         }
 
@@ -77,12 +71,7 @@ pipeline {
             }
             steps {
               echo 'Running SCA using BlackDuck'
-              synopsysIO(connectors: [
-                  blackduck(configName: 'poc-bd',
-                  projectName: 'sas-poc-dotnet',
-                  projectVersion: '1.0')]) {
-                  sh 'io --stage execution --state io_state.json'
-              }
+              echo 'AST config goes here'
             }
         }
 
